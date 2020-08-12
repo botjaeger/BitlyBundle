@@ -1,11 +1,12 @@
 # HpatoioBitlyBundle
 
+Based on https://github.com/hpatoio/BitlyBundle
+
 [![Total Downloads](https://poser.pugx.org/hpatoio/bitly-bundle/downloads.png)](https://packagist.org/packages/hpatoio/bitly-bundle)
 [![Latest Stable Version](https://poser.pugx.org/hpatoio/bitly-bundle/v/stable.png)](https://packagist.org/packages/hpatoio/bitly-bundle)
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hpatoio/bitlybundle/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 
-Integrate [hpatoio/bitly-api](https://github.com/hpatoio/bitly-api) in your Symfony2 project
+Integrate [hpatoio/bitly-api](https://github.com/hpatoio/bitly-api) in your Symfony3/4 project
 
 
 Documentation
