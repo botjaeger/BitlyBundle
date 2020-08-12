@@ -16,5 +16,8 @@
     },
     "autoload": {
         "psr-4": { "Hpatoio\\BitlyBundle\\": "" }
+    },
+    "require-dev": {
+        "symfony/web-profiler-bundle": ">=3.4"
     }
 }

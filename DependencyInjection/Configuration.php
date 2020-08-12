@@ -17,8 +17,13 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('hpatoio_bitly');
+        $treeBuilder = new TreeBuilder('hpatoio_bitly');
+
+        if (!method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->root('hpatoio_bitly');
+        } else {
+            $rootNode = $treeBuilder->getRootNode();
+        }
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
@@ -34,11 +39,11 @@ class Configuration implements ConfigurationInterface
                     ->cannotBeEmpty()
                     ->end()
                 ->scalarNode('file_log_format')
-                    ->defaultValue('default')
+                    ->defaultValue('debug')
                     ->info('Format for file logging. You can user default/debug/short or custom MessageFormatter string.')
                     ->end()
                 ->scalarNode('profiler')
-                    ->defaultValue('default')
+                    ->defaultValue('on')
                     ->info('Enable Symfony profiler panel')
                     ->end()
                 ->end();

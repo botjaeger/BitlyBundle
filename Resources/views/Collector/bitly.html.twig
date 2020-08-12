@@ -1,4 +1,4 @@
-{% extends 'WebProfilerBundle:Profiler:layout.html.twig' %}
+{% extends '@WebProfiler/Profiler/layout.html.twig' %}
 
 {% block toolbar %}
     {% set icon %}
@@ -12,7 +12,7 @@
         <span>{{ collector.requests|length }}</span>
     </div>
     {% endset %}
-    {% include 'WebProfilerBundle:Profiler:toolbar_item.html.twig' with { 'link': profiler_url } %}
+    {% include '@WebProfiler/Profiler/toolbar_item.html.twig' with { 'link': profiler_url } %}
 {% endblock %}
 
 {% block menu %}
@@ -51,11 +51,11 @@
                         <small>
                             <strong>Request:</strong>
                         </small>
-                        <pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">{{ request.request }}</pre>
+                        <pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">{{ request.request }}</pre>
                         <small>
                             <strong>Response:</strong>
                         </small>
-                        <pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">{{ request.response }}</pre>
+                        <pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">{{ request.response }}</pre>
                     </div>
                 </li>
             {% endfor %}
@@ -66,8 +66,7 @@
     function explain(link) {
         "use strict";
 
-        var imgs = link.children,
-                target = link.getAttribute('data-target-id');
+        const imgs = link.children, target = link.getAttribute('data-target-id');
 
         Sfjs.toggle(target, imgs[0], imgs[1]);
 

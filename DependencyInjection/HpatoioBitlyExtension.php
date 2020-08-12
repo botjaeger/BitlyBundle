@@ -17,6 +17,7 @@ class HpatoioBitlyExtension extends Extension
 {
     /**
      * {@inheritDoc}
+     * @throws \Exception
      */
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -41,14 +42,12 @@ class HpatoioBitlyExtension extends Extension
             
             $serviceDefinition = $container->findDefinition('hpatoio_bitly.client');
             $serviceDefinition->addMethodCall('addSubscriber', array(new Reference('hpatoio_bitly.log.monolog')));
-        
         }
         
-        if (isset($config['profiler'])) {
+        if (isset($config['profiler']) && filter_var($config['profiler'], FILTER_VALIDATE_BOOLEAN)) {
             $loader->load('profiler_service.yml');
             $serviceDefinition = $container->findDefinition('hpatoio_bitly.client');
             $serviceDefinition->addMethodCall('addSubscriber', array(new Reference('hpatoio_bitly.log.array')));
         }
-        
     }
 }

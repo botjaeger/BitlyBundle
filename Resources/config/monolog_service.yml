@@ -1,10 +1,9 @@
 services:
-    hpatoio_bitly.log.monolog:
-        class: "Guzzle\\Plugin\\Log\\LogPlugin"
-        arguments: ["@hpatoio_bitly.log.monolog.adapter", "%hpatoio_bitly.log.format%"]
-    hpatoio_bitly.log.monolog.adapter:
-        class: "Guzzle\\Log\\MonologLogAdapter"
-        arguments: ["@logger"]
-        tags: 
-           - { name: monolog.logger, channel: bitly_api }
-        
+  hpatoio_bitly.log.monolog:
+    class: Guzzle\Plugin\Log\LogPlugin
+    arguments: ["@hpatoio_bitly.log.monolog.adapter", "%hpatoio_bitly.log.format%"]
+  hpatoio_bitly.log.monolog.adapter:
+    class: Guzzle\Log\PsrLogAdapter
+    arguments: ["@logger"]
+    tags:
+      - { name: monolog.logger, channel: bitly_api }
