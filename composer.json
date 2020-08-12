@@ -1,7 +1,7 @@
 {
-    "name": "hpatoio/bitly-bundle",
+    "name": "botjaeger/bitly-bundle",
     "type": "symfony-bundle",
-    "description": "Integrate hpatoio/bitly-api in your Symfony2 project",
+    "description": "Integrate hpatoio/bitly-api in your Symfony3/4 project",
     "keywords": ["api", "bitly", "guzzle"],
     "license": "CC-BY-SA-3.0",
     "authors": [
